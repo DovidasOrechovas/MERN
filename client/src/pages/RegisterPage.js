@@ -1,9 +1,9 @@
 import {useState} from "react";
 
 export default function RegisterPage() {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-     async function register(ev) {
+    const [username, setUsername] = useState(''); //Creates new variable name 
+    const [password, setPassword] = useState(''); //Creates new variable password
+     async function register(ev) { //async function called register() that takes in an event object named ev as its only parameter.
         ev.preventDefault();
         const response = await fetch('http://localhost:4000/register', {
             method: 'POST',
@@ -11,9 +11,9 @@ export default function RegisterPage() {
             headers: {'Content-Type':'application/json'},
         });
         if (response.status === 200) {
-          alert('Registration succesful');
+          alert('Registration succesful'); //If saved to mongodb
         } else {
-          alert('Registration failed');
+          alert('Registration failed'); //If saving is unsuccesful
         }
       }
     return(
